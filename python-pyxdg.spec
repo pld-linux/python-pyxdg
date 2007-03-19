@@ -10,6 +10,9 @@ Source0:	http://www.freedesktop.org/~lanius/%{module}-%{version}.tar.gz
 # Source0-md5:	86a5441285fc908145414b63348d11a3
 URL:		http://freedesktop.org/Software/pyxdg
 BuildRequires:	python-devel
+BuildRequires:  rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
+%pyrequires_eq  python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
