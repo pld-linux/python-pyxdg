@@ -1,6 +1,6 @@
 %define		module	pyxdg
-Summary:	Python library to access freedesktop.org standards
-Summary(pl.UTF-8):	Biblioteka pythona do u�ywania standard�w freedesktop.org
+Summary:	Python implementations of freedesktop.org standards
+Summary(pl.UTF-8):	Implementacje standardów freedesktop.org w języku Python
 Name:		python-%{module}
 Version:	0.15
 Release:	0.1
@@ -14,10 +14,26 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-PyXDG is a python library to access freedesktop.org standards.
+PyXDG is a python module to access freedesktop.org standards. The
+package contains:
+
+  - Implementation of the XDG-Base-Directory Standard
+  - Implementation of the XDG-Desktop Standard
+  - Implementation of the XDG-Menu Standard
+  - Implementation of the XDG-Icon-Theme Standard
+  - Implementation of the XDG-Shared MIME-info Database
+  - Implementation of the XDG-Recent File Storage Specification
 
 %description -l pl.UTF-8
-PyXDG jest bibliotek� pythona do u�ywania standard�w freedesktop.org.
+PyXDG jest modułem języka Python, pozwalającym na wykorzystywanie
+standardów freedesktop.org. Pakiet zawiera:
+
+  - Implementację standardu XDG-Base-Directory
+  - Implementację standardu XDG-Desktop
+  - Implementację standardu XDG-Menu
+  - Implementację standardu XDG-Icon-Theme
+  - Implementację bazy XDG-Shared MIME-info
+  - Implementację specyfikacji XDG-Recent File Storage
 
 %prep
 %setup -q -n %{module}-%{version}
