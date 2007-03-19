@@ -39,11 +39,11 @@ standardów freedesktop.org. Pakiet zawiera:
 %setup -q -n %{module}-%{version}
 
 %build
-%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py install --skip-build --root=$RPM_BUILD_ROOT
+%{__python} setup.py install --optimize=2 --root=$RPM_BUILD_ROOT
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -53,4 +53,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog README TODO
 %{py_sitescriptdir}/pyxdg-%{version}-py2.5.egg-info
 %dir %{py_sitescriptdir}/xdg
-%{py_sitescriptdir}/xdg/*.pyc
+%{py_sitescriptdir}/xdg/*.py[co]
