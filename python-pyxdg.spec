@@ -5,11 +5,11 @@ Name:		python-%{module}
 Version:	0.15
 Release:	0.1
 License:	LGPL
-Group:		Development/Libraries
+Group:		Libraries/Python
 Source0:	http://www.freedesktop.org/~lanius/%{module}-%{version}.tar.gz
 # Source0-md5:	86a5441285fc908145414b63348d11a3
 URL:		http://freedesktop.org/Software/pyxdg
-BuildRequires:	python-devel
+BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
@@ -54,6 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog README TODO
-%{py_sitescriptdir}/pyxdg-%{version}-py2.5.egg-info
+%{py_sitescriptdir}/pyxdg-%{version}-py*.egg-info
 %dir %{py_sitescriptdir}/xdg
 %{py_sitescriptdir}/xdg/*.py[co]
