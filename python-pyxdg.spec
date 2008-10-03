@@ -3,7 +3,7 @@ Summary:	Python implementations of freedesktop.org standards
 Summary(pl.UTF-8):	Implementacje standardów freedesktop.org w języku Python
 Name:		python-%{module}
 Version:	0.15
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://www.freedesktop.org/~lanius/%{module}-%{version}.tar.gz
