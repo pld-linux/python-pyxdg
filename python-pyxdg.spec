@@ -2,12 +2,12 @@
 Summary:	Python implementations of freedesktop.org standards
 Summary(pl.UTF-8):	Implementacje standardów freedesktop.org w języku Python
 Name:		python-%{module}
-Version:	0.15
-Release:	2
+Version:	0.17
+Release:	1
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://www.freedesktop.org/~lanius/%{module}-%{version}.tar.gz
-# Source0-md5:	86a5441285fc908145414b63348d11a3
+# Source0-md5:	a086de99cc536095684d87f15594e4db
 URL:		http://freedesktop.org/Software/pyxdg
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
