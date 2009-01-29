@@ -9,7 +9,7 @@ Group:		Libraries/Python
 Source0:	http://www.freedesktop.org/~lanius/%{module}-%{version}.tar.gz
 # Source0-md5:	a086de99cc536095684d87f15594e4db
 URL:		http://freedesktop.org/Software/pyxdg
-BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
@@ -54,6 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog README TODO
-%{py_sitescriptdir}/pyxdg-%{version}-py*.egg-info
 %dir %{py_sitescriptdir}/xdg
 %{py_sitescriptdir}/xdg/*.py[co]
+%if "%{py_ver}" > "2.4"
+%{py_sitescriptdir}/pyxdg-%{version}-py*.egg-info
+%endif
