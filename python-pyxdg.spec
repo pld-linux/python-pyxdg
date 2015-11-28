@@ -77,12 +77,12 @@ standardów freedesktop.org. Pakiet zawiera:
 
 %build
 %if %{with python2}
-%{__python} setup.py build \
+%py_build \
 	--build-base build-2
 %endif
 
 %if %{with python3}
-%{__python3} setup.py build \
+%py3_build \
 	--build-base build-3
 %endif
 
