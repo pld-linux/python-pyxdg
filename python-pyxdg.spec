@@ -8,7 +8,7 @@ Summary:	Python 2 implementations of freedesktop.org standards
 Summary(pl.UTF-8):	Implementacje standardów freedesktop.org w języku Python 2
 Name:		python-%{module}
 Version:	0.25
-Release:	4
+Release:	5
 License:	LGPL v2
 Group:		Libraries/Python
 Source0:	http://people.freedesktop.org/~takluyver/%{module}-%{version}.tar.gz
@@ -77,35 +77,23 @@ standardów freedesktop.org. Pakiet zawiera:
 
 %build
 %if %{with python2}
-%py_build \
-	--build-base build-2
+%py_build
 %endif
 
 %if %{with python3}
-%py3_build \
-	--build-base build-3
+%py3_build
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
-%{__python} setup.py \
-	build \
-		--build-base build-2 \
-	install \
-		--optimize=2 \
-		--root=$RPM_BUILD_ROOT
+%py_install
 %py_postclean
 %endif
 
 %if %{with python3}
-%{__python3} setup.py \
-	build \
-		--build-base build-3 \
-	install \
-		--optimize=2 \
-		--root=$RPM_BUILD_ROOT
+%py3_install
 %endif
 
 %clean
