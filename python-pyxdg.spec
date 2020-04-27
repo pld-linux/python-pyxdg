@@ -7,18 +7,19 @@
 Summary:	Python 2 implementations of freedesktop.org standards
 Summary(pl.UTF-8):	Implementacje standardów freedesktop.org w języku Python 2
 Name:		python-%{module}
-Version:	0.25
-Release:	8
+Version:	0.26
+Release:	1
 License:	LGPL v2
 Group:		Libraries/Python
-Source0:	http://people.freedesktop.org/~takluyver/%{module}-%{version}.tar.gz
-# Source0-md5:	bedcdb3a0ed85986d40044c87f23477c
-URL:		http://freedesktop.org/Software/pyxdg
+#Source0Download: https://pypi.org/simple/pyxdg/
+Source0:	https://files.pythonhosted.org/packages/source/p/pyxdg/%{module}-%{version}.tar.gz
+# Source0-md5:	db1c2af8300ca64ce3955b3cf2490c92
+URL:		https://freedesktop.org/wiki/Software/pyxdg/
 %{?with_python2:BuildRequires:	python-devel >= 1:2.6}
 %{?with_python3:BuildRequires:	python3-devel >= 1:3.2}
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.710
-Requires:	python-modules
+BuildRequires:	rpmbuild(macros) >= 1.714
+Requires:	python-modules >= 1:2.6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,7 +49,7 @@ standardów freedesktop.org. Pakiet zawiera:
 Summary:	Python 3 implementations of freedesktop.org standards
 Summary(pl.UTF-8):	Implementacje standardów freedesktop.org w języku Python 3
 Group:		Libraries/Python
-Requires:	python3-modules
+Requires:	python3-modules >= 1:3.2
 
 %description -n python3-pyxdg
 PyXDG is a Python module to access freedesktop.org standards. The
