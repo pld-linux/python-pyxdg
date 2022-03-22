@@ -1,5 +1,6 @@
 #
 # Conditional build:
+%bcond_with	tests	# unit tests (few failing)
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
@@ -7,19 +8,31 @@
 Summary:	Python 2 implementations of freedesktop.org standards
 Summary(pl.UTF-8):	Implementacje standardów freedesktop.org w języku Python 2
 Name:		python-%{module}
-Version:	0.26
-Release:	2
+Version:	0.27
+Release:	1
 License:	LGPL v2
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pyxdg/
 Source0:	https://files.pythonhosted.org/packages/source/p/pyxdg/%{module}-%{version}.tar.gz
-# Source0-md5:	db1c2af8300ca64ce3955b3cf2490c92
+# Source0-md5:	2a2844c21b1b038d74433a0c4aef0a88
 URL:		https://freedesktop.org/wiki/Software/pyxdg/
-%{?with_python2:BuildRequires:	python-devel >= 1:2.6}
-%{?with_python3:BuildRequires:	python3-devel >= 1:3.2}
+%if %{with python2}
+BuildRequires:	python-devel >= 1:2.7
+BuildRequires:	python-setuptools
+%if %{with tests}
+BuildRequires:	python-nose
+%endif
+%endif
+%if %{with python3}
+BuildRequires:	python3-devel >= 1:3.2
+BuildRequires:	python3-setuptools
+%if %{with tests}
+BuildRequires:	python3-nose
+%endif
+%endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python-modules >= 1:2.6
+Requires:	python-modules >= 1:2.7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -79,10 +92,18 @@ standardów freedesktop.org. Pakiet zawiera:
 %build
 %if %{with python2}
 %py_build
+
+%if %{with tests}
+nosetests-%{py_ver} test
+%endif
 %endif
 
 %if %{with python3}
 %py3_build
+
+%if %{with tests}
+nosetests-%{py3_ver} test
+%endif
 %endif
 
 %install
@@ -90,6 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
 %py_install
+
 %py_postclean
 %endif
 
