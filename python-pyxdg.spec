@@ -8,13 +8,13 @@
 Summary:	Python 2 implementations of freedesktop.org standards
 Summary(pl.UTF-8):	Implementacje standardów freedesktop.org w języku Python 2
 Name:		python-%{module}
-Version:	0.27
-Release:	4
+Version:	0.28
+Release:	1
 License:	LGPL v2
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pyxdg/
 Source0:	https://files.pythonhosted.org/packages/source/p/pyxdg/%{module}-%{version}.tar.gz
-# Source0-md5:	2a2844c21b1b038d74433a0c4aef0a88
+# Source0-md5:	d9a1d04fe60c956f5e3b9de3b4ef4722
 URL:		https://freedesktop.org/wiki/Software/pyxdg/
 %if %{with python2}
 BuildRequires:	python-devel >= 1:2.7
